@@ -161,6 +161,7 @@ export default function App () {
       </button>:
       ''
     }
+    <div>
     
       <Auth
         login={login}
@@ -170,16 +171,19 @@ export default function App () {
         setToken={setToken}
         token={token}
       />
-      <CreateBookmark
+      <CreateBookmark style={{height:'50%', margin: "5%"}}
         createBookmark={createBookmark}
         bookmark={bookmark}
         handleChange={handleChange}
       />
-      <BookmarkList
+      </div>
+      <div style={{height:'50%'}}>
+      <BookmarkList style={{height:'50%'}}
         bookmarks={bookmarks}
         deleteBookmark={deleteBookmark}
         updateBookmark={updateBookmark}
       />
+      </div>
     </>
   )
 }
