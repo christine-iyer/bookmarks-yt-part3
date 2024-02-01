@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import Auth from './components/Auth/Auth'
 import CreateBookmark from './components/CreateBookmark/CreateBookmark'
-import BookmarkList from './components/BookmarkList/BookmarkList'
-
-export default function App () {
+import BookmarkCarousel from './Gallery/BookmarkCarousel'
+import 'bootstrap/dist/css/bootstrap.min.css';
+export default function App() {
   /*
     Login, SignUp, CreateBookmark, ListBookmarksByUser, DeleteBookmark, UpdateBookmark
     */
@@ -151,38 +151,39 @@ export default function App () {
   }, [])
   return (
     <>
-    {
-      token? 
-      <button onClick={() => {
-        localStorage.removeItem('token')
-        window.location.reload()
-      }}>
-        Logout
-      </button>:
-      ''
-    }
-    <div>
-    
-      <Auth
-        login={login}
-        credentials={credentials}
-        handleChangeAuth={handleChangeAuth}
-        signUp={signUp}
-        setToken={setToken}
-        token={token}
-      />
-      <CreateBookmark style={{height:'50%', margin: "5%"}}
-        createBookmark={createBookmark}
-        bookmark={bookmark}
-        handleChange={handleChange}
-      />
+      {
+        token ?
+          <button onClick={() => {
+            localStorage.removeItem('token')
+            window.location.reload()
+          }}>
+            Logout
+          </button> :
+          ''
+      }
+      <div>
+
+        <Auth
+          login={login}
+          credentials={credentials}
+          handleChangeAuth={handleChangeAuth}
+          signUp={signUp}
+          setToken={setToken}
+          token={token}
+        />
+        <CreateBookmark style={{ height: '50%', margin: "5%" }}
+          createBookmark={createBookmark}
+          bookmark={bookmark}
+          handleChange={handleChange}
+        />
       </div>
-      <div style={{height:'50%'}}>
-      <BookmarkList style={{height:'50%'}}
-        bookmarks={bookmarks}
-        deleteBookmark={deleteBookmark}
-        updateBookmark={updateBookmark}
-      />
+      <div style={{ height: '50%' }}>
+        <BookmarkCarousel
+          // style={{ height: '50%' }}
+          bookmark={bookmark}
+          // deleteBookmark={deleteBookmark}
+          // updateBookmark={updateBookmark}
+        />
       </div>
     </>
   )
