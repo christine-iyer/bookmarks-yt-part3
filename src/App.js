@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Auth from './components/Auth/Auth'
 import CreateBookmark from './components/CreateBookmark/CreateBookmark'
-import BookmarkCarousel from './Gallery/BookmarkCarousel'
+import BookmarkList from './components/BookmarkList/BookmarkList'
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App() {
   /*
@@ -178,12 +178,11 @@ export default function App() {
         />
       </div>
       <div style={{ height: '50%' }}>
-        <BookmarkCarousel
-          // style={{ height: '50%' }}
-          bookmark={bookmark}
-          // deleteBookmark={deleteBookmark}
-          // updateBookmark={updateBookmark}
-        />
+      <BookmarkList style={{height:'50%'}}
+        bookmarks={bookmarks}
+        deleteBookmark={deleteBookmark}
+        updateBookmark={updateBookmark}
+      />
       </div>
     </>
   )

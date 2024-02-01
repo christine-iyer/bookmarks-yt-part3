@@ -26,9 +26,11 @@ export default function Bookmark ({
         />
         <img src={bookmark.url} alt={bookmark.url} rel='noreferrer'></img>
         <button
+        className='iconTrash' style={{}}
+        
           onClick={() => deleteBookmark(bookmark._id)}
         >
-          Delete Me
+         
         </button>
       </li>
     </>
